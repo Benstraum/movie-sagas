@@ -1,0 +1,29 @@
+.outerMovie{
+   margin-left: auto;
+   margin-right: auto;
+   position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+.detailInner p{
+    vertical-align: middle;
+    float: left;
+    width: 400px;
+    overflow-y: scroll;
+   
+}
+.detailInner .textDiv{
+    vertical-align: middle;
+    overflow-y: scroll;
+}
+.detailInner img{
+   padding-bottom: 20px;
+  float: left;
+   width:250px;
+}
+.detailInner{
+    height:auto;
+    width: auto;
+    padding: 20px;
+   
+}

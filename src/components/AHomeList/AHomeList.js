@@ -14,7 +14,7 @@ class AHomeList extends Component {
   }
 
   showDetails(movie){
-    this.props.dispatch({type:'SET_DETAILS', movie})
+    this.props.dispatch({type:'SET_DETAILS', payload: movie})
     this.props.history.push('/details')
   }
   render() {

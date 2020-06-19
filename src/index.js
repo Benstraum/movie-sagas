@@ -15,7 +15,6 @@ import createSagaMiddleware from 'redux-saga';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies)
-
 }
 
 function* getMovies(){
