@@ -15,6 +15,7 @@ import createSagaMiddleware from 'redux-saga';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies)
+
 }
 
 function* getMovies(){
@@ -33,7 +34,14 @@ const movies = (state = [], action) => {
             return state;
     }
 }
-
+const details = (state={}, action)=>{
+    switch (action.type) {
+        case 'SET_DETAILS':
+            return action.payload;
+        default:
+            return state;
+    }
+}
 // Used to store the movie genres
 const genres = (state = [], action) => {
     switch (action.type) {
@@ -48,6 +56,7 @@ const genres = (state = [], action) => {
 const storeInstance = createStore(
     combineReducers({
         movies,
+        details,
         genres,
     }),
     // Add sagaMiddleware to our store
