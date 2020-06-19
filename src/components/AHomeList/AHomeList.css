@@ -1,0 +1,10 @@
+.MuiPaper-root Paper{
+    height: 400px;
+}
+.movie {
+    padding:20px;
+    overflow-y: auto;
+}
+.innerMovie{
+    padding:10px;
+}
