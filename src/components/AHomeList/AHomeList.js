@@ -13,9 +13,13 @@ class AHomeList extends Component {
     console.log(this.props.movies)
   }
 
-  showDetails(movie){
+  showDetails=(movie)=>{
     this.props.dispatch({type:'SET_DETAILS', payload: movie})
     this.props.history.push(`/details/${movie.title}`)
+    localStorage.setItem('id', movie.id)
+    localStorage.setItem('title', movie.title)
+    localStorage.setItem('poster', movie.poster)
+    localStorage.setItem('description', movie.description)
   }
   render() {
     return (

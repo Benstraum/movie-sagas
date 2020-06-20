@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require("../modules/pool");
 // return all favorite movies
 router.get("/:id", (req, res) => {
-    console.log(' req.params.id', req.params.id)
+    console.log(' req.params.id in genres get', req.params.id)
   const queryText = 
   `
   SELECT genres.name

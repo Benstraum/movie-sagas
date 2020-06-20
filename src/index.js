@@ -14,6 +14,7 @@ import createSagaMiddleware from 'redux-saga';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies)
+    yield takeEvery('GET_DETAILS', getDetails)
     yield takeEvery('UPDATE_MOVIE', updateMovie)
     yield takeEvery('GET_GENRE_LIST', getSpecifiedGenres)
 }
@@ -29,6 +30,10 @@ function* updateMovie(action) {
 function* getSpecifiedGenres(action){
     const genreResponse = yield axios.get(`/genres/${action.payload}`)
     yield put({ type: 'SET_GENRES', payload: genreResponse.data });
+}
+function* getDetails(action) {
+    const movieResponse = yield axios.get(`/movies/${action.payload}`)
+    put({ type: 'SET_DETAILS', payload: movieResponse.data })
 }
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();

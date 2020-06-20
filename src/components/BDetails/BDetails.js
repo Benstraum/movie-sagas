@@ -8,12 +8,22 @@ import Button from '@material-ui/core/Button';
 
 
 class BDetails extends Component {
+    state = { 
+        details:{
+        id: localStorage.getItem('id'),
+        title:localStorage.getItem('title'),
+        poster:localStorage.getItem('poster'),
+       description: localStorage.getItem('description')
+        }
+     }
+            
     // Renders the entire app on the DOM
     componentDidMount() {
-        this.props.dispatch({ type: 'GET_GENRE_LIST', payload: this.props.details.id })
-    }
+        this.props.dispatch({ type: 'GET_GENRE_LIST', payload: this.state.details.id })
+       
+    }   
     render() {
-        let details = this.props.details
+        let details = this.state.details 
         return (
             //  Material ui causes minor clogging but all this does is display movie info from reduxstate neatly
             <div className="outerMovie">

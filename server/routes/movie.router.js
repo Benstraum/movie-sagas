@@ -14,10 +14,23 @@ router.get("/", (req, res) => {
       res.sendStatus(500);
     });
 });
+//get specific movie
+router.get("/:id", (req, res) => {
+  const queryText = `SELECT * FROM movies WHERE id = $1`;
+  pool
+    .query(queryText, [req.params.id])
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      console.log("ERROR SELECT favorites DB QUERY", error);
+      res.sendStatus(500);
+    });
+});
 // update given movie with a category id
 router.put("/:id", (req, res) => {
   queryText = `UPDATE movies SET "description" = $1, "title"=$2 WHERE "id" = $3`
-  console.log('this is req.body', req.body);
+  console.log('this is req.body in post', req.body);
   pool.query(queryText, [req.body.description, req.body.title, req.body.id])
     .then(result => {
       res.sendStatus(200);
