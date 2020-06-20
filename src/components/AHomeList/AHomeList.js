@@ -10,7 +10,7 @@ class AHomeList extends Component {
   // Renders the entire app on the DOM
   componentDidMount() {
     this.props.dispatch({ type: 'GET_MOVIES' })
-    console.log(this.props.reduxState)
+    console.log(this.props.movies)
   }
 
   showDetails(movie){

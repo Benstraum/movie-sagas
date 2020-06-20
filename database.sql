@@ -22,17 +22,6 @@ genre_id INT REFERENCES genres
 INSERT INTO movie_genre ( movie_id, genre_id)
 VALUES(1, 1),(1, 7),(1, 8),(1, 11),(2, 8),(2, 9),(2, 10),(3,1),(3,8),(3,11),(3,13),(4,1),(4,2),(4,4),(5,5),(5,6),(6,1),(6,6),(6,7),(6,8),(7,1),(8,3),(8,6),(9,1),(9,2),(9,4),(9,8),(10,1),(10,7),(10,8),(10,11),(10,12),(11,1),(11,6),(11,11),(12,6),(13,5),(13,6),(13,7),(14,1),(14,2),(14,4),(14,8);
 
-SELECT genres.name
-FROM genres
-JOIN movie_genre
-ON genres.id = movie_genre.genre_id
-JOIN movies
-ON movie_genre.movie_id = movies.id 
-WHERE movies.id = 1
-;
-
-
-
 --------[ DATA! ]---------
 
 -- starter movies
