@@ -15,7 +15,7 @@ class AHomeList extends Component {
 
   showDetails(movie){
     this.props.dispatch({type:'SET_DETAILS', payload: movie})
-    this.props.history.push('/details')
+    this.props.history.push(`/details/${movie.title}`)
   }
   render() {
     return (
@@ -37,7 +37,9 @@ class AHomeList extends Component {
     );
   }
 }
-const mapReduxStateToProps = (reduxState) => ({ movies: reduxState.movies });
+const mapReduxStateToProps = (reduxState) => ({ 
+  movies: reduxState.movies
+ });
 
 export default connect(mapReduxStateToProps)(AHomeList);
 

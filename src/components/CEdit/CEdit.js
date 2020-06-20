@@ -32,7 +32,7 @@ class CEdit extends Component {
                 description: this.state.newDesc
             }
         })
-        this.props.history.push('/details')
+        this.props.history.push(`/details/${this.state.newTitle}`)
     }
     handleOnChange = (event, type) => {
         this.setState({
