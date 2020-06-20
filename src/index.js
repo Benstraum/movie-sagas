@@ -7,7 +7,6 @@ import axios from 'axios'
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 // Provider allows us to use redux within our react app
 import { Provider } from 'react-redux';
-import logger from 'redux-logger';
 import { takeEvery, put } from 'redux-saga/effects'
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
@@ -15,11 +14,16 @@ import createSagaMiddleware from 'redux-saga';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies)
+    yield takeEvery('UPDATE_MOVIE', updateMovie)
 }
 
-function* getMovies(){
+function* getMovies() {
     const movieResponse = yield axios.get(`/movies`)
     yield put({ type: 'SET_MOVIES', payload: movieResponse.data });
+}
+function* updateMovie(action) {
+    yield axios.put(`/movies/${action.payload.id}`, action.payload)
+    put({ type: 'SET_DETAILS', payload: action.payload })
 }
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
@@ -33,10 +37,11 @@ const movies = (state = [], action) => {
             return state;
     }
 }
-const details = (state={}, action)=>{
+const details = (state = {}, action) => {
     switch (action.type) {
         case 'SET_DETAILS':
-            return action.payload;
+            console.log(action.payload)
+            return action.payload
         default:
             return state;
     }
@@ -59,12 +64,12 @@ const storeInstance = createStore(
         genres,
     }),
     // Add sagaMiddleware to our store
-    applyMiddleware(sagaMiddleware, logger),
+    applyMiddleware(sagaMiddleware),
 );
 
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
 
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
+ReactDOM.render(<Provider store={storeInstance}><App /></Provider>,
     document.getElementById('root'));
 registerServiceWorker();

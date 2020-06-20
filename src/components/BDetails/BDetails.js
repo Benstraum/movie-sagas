@@ -4,6 +4,8 @@ import './BDetails.css'
 //mat-ui
 import Grid from '@material-ui/core/Grid';
 import { Paper } from '@material-ui/core'
+import Button from '@material-ui/core/Button';
+
 
 class BDetails extends Component {
     // Renders the entire app on the DOM
@@ -11,16 +13,21 @@ class BDetails extends Component {
         let details = this.props.details
         return (<div className="outerMovie">
             <Grid container direction="row" justify="center" spacing={8}  >
-            <Paper key={details.id} elevation={3} >
-                <div className="detailInner" >
-                    <img src={details.poster} alt={details.title} />
-                    <div className="textDiv">
-                    <p>{details.description}</p>
+                <Paper key={details.id} elevation={3} >
+                    <div className="detailInner" >
+                        <img src={details.poster} alt={details.title} />
+                        <div className="textDiv">
+                            <h2>{details.title}</h2>
+                            <p>{details.description}</p>
+                        </div>
+                        <Button variant="outlined"
+                            color="primary"
+                            onClick={() => this.props.history.push('/')}>back to movies</Button>
+                        < Button variant="outlined"
+                            color="secondary"
+                            onClick={(() => this.props.history.push('/edit'))}>edit</ Button>
                     </div>
-                    <button onClick={()=>this.props.history.push('/')}>back to movies</button>
-                    <button>edit</button>
-                </div>
-            </Paper>
+                </Paper>
             </Grid>
         </div>
         );

@@ -21,17 +21,17 @@ router.get("/", (req, res) => {
 
 // update given favorite with a category id
 
-  router.put("/:id", (req, res) => {
-    queryText = `UPDATE movies SET "description" = $1 WHERE "id" = $2`
-    console.log('this is req.body',req.body);
-    pool.query(queryText, [req.body.category, req.body.id])
-      .then(result => {
-        res.sendStatus(200);
-      })
-      .catch(error => {
-        res.sendStatus(500);
-      })
-  })
+router.put("/:id", (req, res) => {
+  queryText = `UPDATE movies SET "description" = $1, "title"=$2 WHERE "id" = $3`
+  console.log('this is req.body', req.body);
+  pool.query(queryText, [req.body.description, req.body.title, req.body.id])
+    .then(result => {
+      res.sendStatus(200);
+    })
+    .catch(error => {
+      res.sendStatus(500);
+    })
+})
 
 
 

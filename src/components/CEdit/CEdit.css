@@ -1,0 +1,27 @@
+.CEdit .outerMovie{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+     display: inline-block;
+     vertical-align: middle;
+ 
+ }
+ .CEdit .detailInner p{
+     vertical-align: middle;
+     float: left;
+     width: auto;
+     overflow-y: scroll;
+    
+ }
+
+
+ .CEdit .detailInner img{
+    padding-bottom: 20px;
+   float: left;
+ }
+ .CEdit .detailInner{
+     height:auto;
+     width: 400px;
+     padding: 20px;
+    
+ }
