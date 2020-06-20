@@ -30,6 +30,7 @@ function* getSpecifiedGenres(action){
     const genreResponse = yield axios.get(`/genres/${action.payload}`)
     yield put({ type: 'SET_GENRES', payload: genreResponse.data });
 }
+
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 

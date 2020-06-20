@@ -1,10 +1,11 @@
-.MuiPaper-root Paper{
-    height: 400px;
-}
+
 .movie {
     padding:20px;
     overflow-y: auto;
 }
 .innerMovie{
+    height: 350px;
     padding:10px;
+    word-wrap: break-word;
+    width: 200px;
 }

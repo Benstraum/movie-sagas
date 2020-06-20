@@ -24,6 +24,27 @@ router.get("/:id", (req, res) => {
       res.sendStatus(500);
     });
 });
+// router.get("/all", (req, res) => {
+// const queryText = 
+// `
+// SELECT genres.name
+// FROM genres
+// JOIN movie_genre
+// ON genres.id = movie_genre.genre_id
+// JOIN movies
+// ON movie_genre.movie_id = movies.id 
+// GROUP BY movies.id ;`
+// ;
+// pool
+//   .query(queryText, [req.params.id])
+//   .then((result) => {
+//     res.send(result.rows);
+//   })
+//   .catch((error) => {
+//     console.log("ERROR SELECT favorites DB QUERY", error);
+//     res.sendStatus(500);
+//   });
+// });
 // update given movie with a category id
 // router.put("/:id", (req, res) => {
 //   queryText = `UPDATE movies SET "description" = $1, "title"=$2 WHERE "id" = $3`
@@ -36,4 +57,5 @@ router.get("/:id", (req, res) => {
 //       res.sendStatus(500);
 //     })
 // })
+
 module.exports = router;
