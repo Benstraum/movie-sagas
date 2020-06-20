@@ -90,7 +90,7 @@ class CEdit extends Component {
                                 </Button>
                                 < Button variant="outlined"
                                     color="secondary"
-                                    onClick={(() => this.props.history.push('/details'))}>Cancel</ Button>
+                                    onClick={(() => this.props.history.push(`/details/${this.state.newTitle}`))}>Cancel</ Button>
                             </div>
                         </Paper>
                     </Grid>

@@ -18,6 +18,9 @@ class BDetails extends Component {
     }
     // Renders the entire app on the DOM
     componentDidMount() {
+        setTimeout(() => {
+            this.setState({ loader: false });
+          }, 1000);
         //this allows genrelist to populate with localstorage. also localstorage use cuts down on needed reducers.
         this.props.dispatch({ type: 'GET_GENRE_LIST', payload: this.state.details.id })
     }

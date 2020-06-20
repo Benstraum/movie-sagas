@@ -24,3 +24,10 @@ body{
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.switch-wrapper {
+  position: relative;
+}
+ 
+.switch-wrapper > div {
+  position: absolute;
+}

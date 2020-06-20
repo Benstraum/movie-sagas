@@ -9,6 +9,9 @@ import { Paper } from '@material-ui/core'
 class AHomeList extends Component {
   // Renders the entire app on the DOM
   componentDidMount() {
+    setTimeout(() => {
+      this.setState({ loader: false });
+    }, 1000);
     this.props.dispatch({ type: 'GET_MOVIES' })
   }
 //this sets local storage when digging into a specific movie for more info or to edit.

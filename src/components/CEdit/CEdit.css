@@ -1,6 +1,7 @@
 .CEdit .outerMovie{
-    margin-left: auto;
-    margin-right: auto;
+   
+    left: 120%;
+  
     position: relative;
      display: inline-block;
      vertical-align: middle;
