@@ -12,6 +12,8 @@ class CEdit extends Component {
         newTitle: this.props.details.title,
         newDesc: this.props.details.description
     }
+    //first send necessary info to make db query then it sets reduxstate
+    // so the details page is immediately populated with the right info
     handlePut = () => {
         this.props.dispatch({
             type: 'UPDATE_MOVIE',

@@ -11,7 +11,9 @@ class BDetails extends Component {
     // Renders the entire app on the DOM
     render() {
         let details = this.props.details
-        return (<div className="outerMovie">
+        return (
+            //  Material ui causes minor clogging but all this does is display movie info from reduxstate neatly
+        <div className="outerMovie">
             <Grid container direction="row" justify="center" spacing={8}  >
                 <Paper key={details.id} elevation={3} >
                     <div className="detailInner" >
@@ -20,6 +22,7 @@ class BDetails extends Component {
                             <h2>{details.title}</h2>
                             <p>{details.description}</p>
                         </div>
+                        {/* these buttons just traverse us between components */}
                         <Button variant="outlined"
                             color="primary"
                             onClick={() => this.props.history.push('/')}>back to movies</Button>
