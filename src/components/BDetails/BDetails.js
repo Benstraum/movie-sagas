@@ -8,22 +8,21 @@ import Button from '@material-ui/core/Button';
 
 
 class BDetails extends Component {
-    state = { 
-        details:{
-        id: localStorage.getItem('id'),
-        title:localStorage.getItem('title'),
-        poster:localStorage.getItem('poster'),
-       description: localStorage.getItem('description')
+    state = {
+        details: {
+            id: localStorage.getItem('id'),
+            title: localStorage.getItem('title'),
+            poster: localStorage.getItem('poster'),
+            description: localStorage.getItem('description')
         }
-     }
-            
+    }
     // Renders the entire app on the DOM
     componentDidMount() {
+        //this allows genrelist to populate with localstorage. also localstorage use cuts down on needed reducers.
         this.props.dispatch({ type: 'GET_GENRE_LIST', payload: this.state.details.id })
-       
-    }   
+    }
     render() {
-        let details = this.state.details 
+        let details = this.state.details
         return (
             //  Material ui causes minor clogging but all this does is display movie info from reduxstate neatly
             <div className="outerMovie">
@@ -35,7 +34,7 @@ class BDetails extends Component {
                                 <div className="genreMap">
                                     <ul>
                                         <li>
-                                           <b>Genres</b>:
+                                            <b>Genres</b>:
                                         </li>
                                         {this.props.genres.map(genre => <li key={genre.name}>{genre.name}</li>)}
                                     </ul>

@@ -8,7 +8,18 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
 class CEdit extends Component {
+    componentDidMount() {
+        // this uses localstorage to make sure all necessary info still populates
+        this.props.dispatch({ type: "SET_DETAILS", payload: this.state.details })
+    }
+
     state = {
+        details: {
+            id: localStorage.getItem('id'),
+            title: localStorage.getItem('title'),
+            poster: localStorage.getItem('poster'),
+            description: localStorage.getItem('description')
+        },
         newTitle: this.props.details.title,
         newDesc: this.props.details.description
     }
@@ -32,6 +43,8 @@ class CEdit extends Component {
                 description: this.state.newDesc
             }
         })
+        localStorage.setItem('title', this.state.newTitle)
+        localStorage.setItem('description', this.state.newDesc)
         this.props.history.push(`/details/${this.state.newTitle}`)
     }
     handleOnChange = (event, type) => {
