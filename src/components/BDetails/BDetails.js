@@ -22,7 +22,14 @@ class BDetails extends Component {
                         <div className="detailInner" >
                             <img src={details.poster} alt={details.title} />
                             <div className="textDiv">
-                                {/* <h4>{this.props.genres}</h4> */}
+                                <div className="genreMap">
+                                    <ul>
+                                        <li>
+                                           <b>Genres</b>:
+                                        </li>
+                                        {this.props.genres.map(genre => <li key={genre.name}>{genre.name}</li>)}
+                                    </ul>
+                                </div>
                                 <h2>{details.title}</h2>
                                 <p>{details.description}</p>
                             </div>
@@ -41,7 +48,7 @@ class BDetails extends Component {
     }
 }
 const mapReduxStateToProps = (reduxState) => ({
-    genres:reduxState.genres,
+    genres: reduxState.genres,
     details: reduxState.details
 });
 
