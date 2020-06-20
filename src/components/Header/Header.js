@@ -1,0 +1,26 @@
+import React, {Component} from 'react'
+import { HashRouter as Router, Route, Link } from "react-router-dom";
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+
+import './Header.css'
+class Header extends Component{
+    render(){
+        return(<>
+            <AppBar position="static">
+              <Toolbar>
+                <div className='navBar'>
+                  <ol>
+                    <li >
+                      <h2>Playing Now In Theaters Near You</h2>
+                    </li>
+                  </ol>
+                </div>
+              </Toolbar>
+            </AppBar>
+            <br/>
+            </>
+        )
+    }
+}
+export default Header

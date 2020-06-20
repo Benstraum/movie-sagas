@@ -1,0 +1,38 @@
+.navBar{
+    width: 100%;
+  }
+  .MuiToolbar-root{
+  background-color: black;
+  width:100%;
+  }
+  .navBar   ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+  }
+  
+  .navBar  li {
+    padding-left: 10px;
+   display: inline-block;
+  }
+ .link {
+    width:20%;
+  }
+  
+  .navBar ol li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+   padding-top: 20px ;
+   padding-bottom: 16px;
+   border-bottom: 5px solid transparent;
+  border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 30%, #fd1892 100%);
+  border-image-slice: 1;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  .navBar ol li a:hover {
+    background-color: rgb(1, 0, 87);
+  }

@@ -5,6 +5,7 @@ import './App.css';
 import AHomeList from '../AHomeList/AHomeList';
 import BDetails from '../BDetails/BDetails'
 import CEdit from '../CEdit/CEdit';
+import Header from '../Header/Header'
 class App extends Component {
   componentDidMount() {
   }
@@ -13,6 +14,7 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
+          <Header/>
           <AnimatedSwitch
             atEnter={{ opacity: 0 }}
             atLeave={{ opacity: 0 }}
