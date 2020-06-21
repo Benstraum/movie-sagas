@@ -28,7 +28,7 @@ Postico For easy DB interactions (https://eggerapps.at/postico/)
 
 ## USAGE
 
-I was asked to create a mock movie website to best display the movies that were running at the theoretical theatre. I decided upon a simple yet intuitive designed base where the movies were displayed neatly on the main page with minimal information to clutter the page. Upon clicking a movie it will bring you to a details page specifically for the movie clicked. Further I've created an edit page where one can edit the information for the movie being inspected as well. All information will be retained upon refresh for each page as I utilized localstate in tandem with reduxstate to carry over the pertinent information.
+I was asked to create a mock movie website to best display the movies that were running at the theoretical theatre. I decided upon a simple yet intuitive designed base where the movies were displayed neatly on the main page with minimal information to clutter the page. Upon clicking a movie it will bring you to a details page specifically for the movie clicked. Further I've created an edit page where one can edit the information for the movie being inspected as well. All information will be retained upon refresh for each page as I utilized localstorage in tandem with reduxstate to carry over the pertinent information.
 
 ## Technologies 
  React, jsx, redux, react-redux, react-router-dom, express, pg, pool, axios, and Material-ui. 

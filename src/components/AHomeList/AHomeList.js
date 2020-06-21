@@ -79,7 +79,6 @@ class AHomeList extends Component {
 }
 const mapReduxStateToProps = (reduxState) => ({
   movies: reduxState.movies,
-  query: reduxState.query
 });
 
 export default connect(mapReduxStateToProps)(AHomeList);

@@ -21,7 +21,7 @@ class CEdit extends Component {
             description: localStorage.getItem('description')
         },
         newTitle: this.props.details.title,
-        newDesc: this.props.details.description
+        newDesc: this.props.details.description ,
     }
     //first send necessary info to make db query then it sets reduxstate
     // so the details page is immediately populated with the right info
