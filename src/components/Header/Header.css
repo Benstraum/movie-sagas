@@ -33,7 +33,7 @@
   .navBar ol li a:hover {
     background-color: rgb(11, 10, 77);
   }
-  .MuiToolbar-root-37  {
+  .navBar {
       font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(179, 0, 0);
     background-color: black;
