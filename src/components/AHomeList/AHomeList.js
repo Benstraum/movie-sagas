@@ -16,7 +16,7 @@ class AHomeList extends Component {
   }
   // Renders the entire app on the DOM
   componentDidMount() {
-    this.setState({search:true})
+    this.setState({ search: true })
     this.props.dispatch({ type: 'GET_MOVIES' })
   }
   //this sets local storage when digging into a specific movie for more info or to edit.
@@ -28,10 +28,12 @@ class AHomeList extends Component {
     localStorage.setItem('poster', movie.poster)
     localStorage.setItem('description', movie.description)
   }
-  showSearch=(query, result)=>{
-    this.props.dispatch({type:'SET_QUERY', payload: result})
-    this.props.history.push({ pathname: `/search/${query}` ,
-    state: { showDetails: this.showDetails }});
+  showSearch = (query, result) => {
+    this.props.dispatch({ type: 'SET_QUERY', payload: result })
+    this.props.history.push({
+      pathname: `/search/${query}`,
+      state: { showDetails: this.showDetails }
+    });
     console.log('set query fired payload is', result)
   }
   handleOnChange = (event, type) => {
@@ -47,18 +49,18 @@ class AHomeList extends Component {
     let query = this.state.query
     const result = this.props.movies.filter(movie => movie.title.toUpperCase().includes(query.toUpperCase()));
     result.length ?
-    this.showSearch(query, result)
-   :
-   Swal.fire({
-    title: `We don't have any movie titles that match what you're looking for, Sorry!`,
-    width: 600,
-    padding: '3em',
-    background: `#fff`,
-    backdrop: `
+      this.showSearch(query, result)
+      :
+      Swal.fire({
+        title: `We don't have any movie titles that match what you're looking for, Sorry!`,
+        width: 600,
+        padding: '3em',
+        background: `#fff`,
+        backdrop: `
       rgba(39, 38, 38,0.8)
     `
-  })
-    
+      })
+
     this.setState({
       query: ''
     })
@@ -96,7 +98,7 @@ class AHomeList extends Component {
                 </Paper>
               </Grid>
             </div>
-          ))}    
+          ))}
         </Grid>
       </div>
     );

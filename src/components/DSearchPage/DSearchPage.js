@@ -9,6 +9,7 @@ class DSearchPage extends Component {
     componentDidMount() {
         console.log('in search', this.props.query)
     }
+    //similar design to my initial homelist component next step is to create reusable map component for these
     showDetails = (movie) => {
         this.props.dispatch({ type: 'SET_DETAILS', payload: movie })
         this.props.history.push(`/details/${movie.title}`)
@@ -17,7 +18,6 @@ class DSearchPage extends Component {
         localStorage.setItem('poster', movie.poster)
         localStorage.setItem('description', movie.description)
     }
-
     render() {
         return (<div className="centerSearch">
             <div className='searchBar'>
@@ -25,8 +25,8 @@ class DSearchPage extends Component {
                 <IconButton
                     color="secondary"
                     onClick={() => this.props.history.push('/')}>
-                        <HomeIcon/>
-                    </IconButton>
+                    <HomeIcon />
+                </IconButton>
             </div>
             <div className="showDetail">
                 {this.props.query.map((movie) => (
