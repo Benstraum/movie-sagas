@@ -1,4 +1,17 @@
-
+.AHomeList{
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.MuiGrid-container{
+    margin-left: auto;
+    margin-right: auto;
+}
+.MuiGrid-item{
+    margin-left: auto;
+    margin-right: auto;
+}
 .movie {
     padding:20px;
     overflow-y: auto;

@@ -25,4 +25,13 @@ const genres = (state = [], action) => {
             return state;
     }
 }
-export default { movies, details, genres }
+const query = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_QUERY':
+            console.log(action.payload)
+            return action.payload;
+        default:
+            return state;
+    }
+}
+export default { movies, details, genres, query }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './AHomeList.css'
-import AHomeListItem from '../AHomeListItem/AHomeListItem'
 //mat-ui
 import Grid from '@material-ui/core/Grid';
 import { Paper, TextField } from '@material-ui/core'
@@ -12,10 +11,12 @@ import Swal from 'sweetalert2'
 
 class AHomeList extends Component {
   state = {
+    search: true,
     query: ''
   }
   // Renders the entire app on the DOM
   componentDidMount() {
+    this.setState({search:true})
     this.props.dispatch({ type: 'GET_MOVIES' })
   }
   //this sets local storage when digging into a specific movie for more info or to edit.
@@ -27,7 +28,12 @@ class AHomeList extends Component {
     localStorage.setItem('poster', movie.poster)
     localStorage.setItem('description', movie.description)
   }
-
+  showSearch=(query, result)=>{
+    this.props.dispatch({type:'SET_QUERY', payload: result})
+    this.props.history.push({ pathname: `/search/${query}` ,
+    state: { showDetails: this.showDetails }});
+    console.log('set query fired payload is', result)
+  }
   handleOnChange = (event, type) => {
     this.setState({
       ...this.state,
@@ -40,10 +46,19 @@ class AHomeList extends Component {
   findMovie = () => {
     let query = this.state.query
     const result = this.props.movies.filter(movie => movie.title.toUpperCase().includes(query.toUpperCase()));
-    console.log(result)
-    {result &&
-   this.props.dispatch({type:'SET_MOVIES', payload: result})
-    }
+    result.length ?
+    this.showSearch(query, result)
+   :
+   Swal.fire({
+    title: `We don't have any movie titles that match what you're looking for, Sorry!`,
+    width: 600,
+    padding: '3em',
+    background: `#fff`,
+    backdrop: `
+      rgba(39, 38, 38,0.8)
+    `
+  })
+    
     this.setState({
       query: ''
     })
@@ -53,9 +68,9 @@ class AHomeList extends Component {
     return (
       //will source out map to other component soon, but this creates every poster you see on the page using a 
       //get call joining together the movies and their genres with array_agg
-      <div>
-        <Grid container direction="row" justify="center" spacing={8}  >
-          <Grid container item justify='center' xs={12} spacing={8} >
+      <div className='AHomeList'>
+        <Grid container alignContent='center' justify="center" spacing={0}  >
+          <Grid container item justify='center' xs={12} spacing={0} >
             <div className="searchBar">
               <TextField
                 id="filled-textarea"
@@ -72,7 +87,7 @@ class AHomeList extends Component {
           </Grid>
           {this.props.movies.map((movie) => (
             <div key={movie.id} className="movie">
-              <Grid container item xs={12} spacing={0}>
+              <Grid container justify='center' item xs={12} spacing={0}>
                 <Paper key={movie.id} elevation={3}>
                   <div className="innerMovie" onClick={() => this.showDetails(movie)}>
                     <img src={movie.poster} alt={movie.title} />
