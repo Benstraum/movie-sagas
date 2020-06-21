@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './AHomeList.css'
+import AHomeListItem from '../AHomeListItem/AHomeListItem'
 //mat-ui
 import Grid from '@material-ui/core/Grid';
 import { Paper, TextField } from '@material-ui/core'
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
+//sweetalert
+import Swal from 'sweetalert2'
 
 class AHomeList extends Component {
   state = {
@@ -31,9 +34,16 @@ class AHomeList extends Component {
       [type]: event.target.value
     })
   }
-
+  //this search function takes our query from texfield, uses our reduxstate.movies to filter through and 
+  //find if there is a match anywhere in the title. if the result is truthy it will fire a dispatch
+  //re using the reducer that originally populated the page bringing up only the query related movies!!
   findMovie = () => {
-    // this.props.dispatch({ type: 'GET_SEARCH', payload: this.state.query })
+    let query = this.state.query
+    const result = this.props.movies.filter(movie => movie.title.toUpperCase().includes(query.toUpperCase()));
+    console.log(result)
+    {result &&
+   this.props.dispatch({type:'SET_MOVIES', payload: result})
+    }
     this.setState({
       query: ''
     })
@@ -71,14 +81,14 @@ class AHomeList extends Component {
                 </Paper>
               </Grid>
             </div>
-          ))}
+          ))}    
         </Grid>
       </div>
     );
   }
 }
 const mapReduxStateToProps = (reduxState) => ({
-  movies: reduxState.movies,
+  movies: reduxState.movies
 });
 
 export default connect(mapReduxStateToProps)(AHomeList);
