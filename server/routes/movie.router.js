@@ -35,7 +35,6 @@ router.get("/", (req, res) => {
   ON movie_genre.genre_id = genres.id 
   GROUP BY movies.id
   ORDER BY movies.id ASC
-  LIMIT 10
   ;`;
   pool
     .query(queryText)
