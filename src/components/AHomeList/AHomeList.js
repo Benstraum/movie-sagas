@@ -12,12 +12,10 @@ import Swal from 'sweetalert2'
 
 class AHomeList extends Component {
   state = {
-    search: true,
     query: ''
   }
   // Renders the entire app on the DOM
   componentDidMount() {
-    this.setState({ search: true })
     this.props.dispatch({ type: 'GET_MOVIES' })
   }
   //this sets local storage when digging into a specific movie for more info or to edit.
@@ -31,10 +29,7 @@ class AHomeList extends Component {
   }
   showSearch = (query, result) => {
     this.props.dispatch({ type: 'SET_QUERY', payload: result })
-    this.props.history.push({
-      pathname: `/search/${query}`,
-      state: { showDetails: this.showDetails }
-    });
+    this.props.history.push(`/search/${query}`);
     console.log('set query fired payload is', result)
   }
   handleOnChange = (event, type) => {
@@ -68,18 +63,18 @@ class AHomeList extends Component {
 
   }
   render() {
-    const shuffled = this.props.movies.sort(() => 0.5 - Math.random());
-    const movies = shuffled.slice(0, 5)
+    const movies = this.props.movies.slice(5, 10)
     return (
       //will source out map to other component soon, but this creates every poster you see on the page using a 
       //get call joining together the movies and their genres with array_agg
       <div className='AHomeList'>
+          <h1>Top Movies In Our Theater Today!</h1>
         <Grid container alignContent='center' justify="center" spacing={0}  >
           <Grid container item justify='center' xs={12} spacing={0} >
             <div className="searchBar">
               <TextField
                 id="filled-textarea"
-                label="Find Movie"
+                label="Find Other Movies"
                 placeholder="Title"
                 variant="filled"
                 value={this.state.query}
