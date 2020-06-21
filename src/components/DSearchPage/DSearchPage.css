@@ -7,13 +7,16 @@
     border-radius: 10px;
     background-color: rgb(38,38,38);
 }
-.centerSearch .searchBar h1{
+.centerSearch .searchBar h2{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
   margin: 0;
-  padding: 0;
+  padding-top: 10px;
   float: left;
 }
 .centerSearch .searchBar button{
   vertical-align: middle;
+  font-size: large;
 }
 
 .centerSearch{

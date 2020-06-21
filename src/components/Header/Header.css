@@ -38,3 +38,6 @@
     color: rgb(179, 0, 0);
     background-color: black;
   }
+  .navBar button{
+    float:left; 
+  }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import MovieMapItem from '../MovieMapItem/MovieMapItem'
 import { connect } from 'react-redux';
 import { Paper } from '@material-ui/core'
 import IconButton from '@material-ui/core/IconButton';
@@ -21,7 +22,7 @@ class DSearchPage extends Component {
     render() {
         return (<div className="centerSearch">
             <div className='searchBar'>
-                <h1>Search Results!</h1>
+                <h2>This what you're looking for?</h2>
                 <IconButton
                     color="secondary"
                     onClick={() => this.props.history.push('/')}>
@@ -30,14 +31,7 @@ class DSearchPage extends Component {
             </div>
             <div className="showDetail">
                 {this.props.query.map((movie) => (
-                    <div key={movie.id} className="movie">
-                        <Paper key={movie.id} elevation={3}>
-                            <div className="innerMovie" onClick={() => this.showDetails(movie)}>
-                                <img src={movie.poster} alt={movie.title} />
-                                <p><b>Genres</b>: <br />{movie.array_agg.join(', ')}</p>
-                            </div>
-                        </Paper>
-                    </div>
+                    <MovieMapItem movie={movie} key={movie.id} showDetails={this.showDetails}/>
                 ))}
                 <br />
             </div>
