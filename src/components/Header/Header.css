@@ -27,12 +27,14 @@
     text-decoration: none;
    padding-top: 20px ;
    padding-bottom: 16px;
-   border-bottom: 5px solid transparent;
-  border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 30%, #fd1892 100%);
-  border-image-slice: 1;
   }
   
   /* Change the link color to #111 (black) on hover */
   .navBar ol li a:hover {
-    background-color: rgb(1, 0, 87);
+    background-color: rgb(11, 10, 77);
+  }
+  .MuiToolbar-root-37  {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(179, 0, 0);
+    background-color: black;
   }

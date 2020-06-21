@@ -29,6 +29,7 @@ class BDetails extends Component {
         return (
             //  Material ui causes minor clogging but all this does is display movie info from reduxstate neatly
             <div className="outerMovie">
+                <h1>Movie Details</h1>
                 <Grid container direction="row" justify="center" spacing={8}  >
                     <Paper key={details.id} elevation={3} >
                         <div className="detailInner" >

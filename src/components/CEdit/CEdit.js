@@ -59,9 +59,11 @@ class CEdit extends Component {
         return (
             <div className="CEdit">
                 <div className="outerMovie">
+                <h1>Something Wrong?</h1>
                     <Grid container direction="row" justify="center" spacing={8}  >
                         <Paper key={details.id} elevation={3} >
                             <div className="detailInner" >
+                                <h2>Edit Movie Details</h2>
                                 <TextField
                                     id="filled-textarea"
                                     label="Title"

@@ -6,6 +6,7 @@ function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies)
     yield takeEvery('UPDATE_MOVIE', updateMovie)
     yield takeEvery('GET_GENRE_LIST', getSpecifiedGenres)
+    // yield takeEvery('GET_SEARCH', findMovie)
 }
 
 function* getMovies() {
@@ -20,4 +21,8 @@ function* getSpecifiedGenres(action){
     const genreResponse = yield axios.get(`/genres/${action.payload}`)
     yield put({ type: 'SET_GENRES', payload: genreResponse.data });
 }
+// function* findMovie(action){
+//     const findResponse = yield axios.get(`/movies/${action.payload}`, action.payload)
+//     yield put({ type: 'SET_QUERY', payload: findResponse.data });
+// }
 export default rootSaga

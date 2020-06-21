@@ -2,6 +2,29 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
 // return all favorite movies
+// router.get("/:id", (req,res) =>{
+//   let values= req.params.id
+//   const queryText = 
+//   `SELECT movies.*, array_agg(genres.name)
+//   FROM movies
+//   JOIN movie_genre
+//   ON movies.id = movie_genre.movie_id
+//   JOIN genres
+//   ON movie_genre.genre_id = genres.id 
+//   GROUP BY movies.id
+//   ORDER BY movies.id ASC
+//   ;`
+//   pool
+//   .query(queryText)
+//   .then(result=>{
+//     let queryResult = result.rows.map()
+//     console.log(result.rows)
+//     res.send(result.rows)
+//   })
+//     .catch(err => {console.log('error in get/:id', err)
+//     res.sendStatus(500)
+//   })
+// })
 router.get("/", (req, res) => {
   const queryText = 
   `SELECT movies.*, array_agg(genres.name)
@@ -12,6 +35,7 @@ router.get("/", (req, res) => {
   ON movie_genre.genre_id = genres.id 
   GROUP BY movies.id
   ORDER BY movies.id ASC
+  LIMIT 10
   ;`;
   pool
     .query(queryText)
