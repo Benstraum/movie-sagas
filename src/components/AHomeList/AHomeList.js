@@ -4,7 +4,7 @@ import MovieMapItem from '../MovieMapItem/MovieMapItem'
 import './AHomeList.css'
 //mat-ui
 import Grid from '@material-ui/core/Grid';
-import {TextField } from '@material-ui/core'
+import { TextField } from '@material-ui/core'
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 //sweetalert
@@ -16,6 +16,12 @@ class AHomeList extends Component {
   }
   // Renders the entire app on the DOM
   componentDidMount() {
+    console.log(`
+     Hello and welcome to my movie saga project!
+     This was a lot of fun to create and really cemented my 
+     understanding of react, reducers, and sagas.
+     Currently only 5 movies are showing but there are 14 total
+     that you can find using my search bar! `)
     this.props.dispatch({ type: 'GET_MOVIES' })
   }
   //this sets local storage when digging into a specific movie for more info or to edit.
@@ -30,7 +36,6 @@ class AHomeList extends Component {
   showSearch = (query, result) => {
     this.props.dispatch({ type: 'SET_QUERY', payload: result })
     this.props.history.push(`/search/${query}`);
-    console.log('set query fired payload is', result)
   }
   handleOnChange = (event, type) => {
     this.setState({
@@ -68,7 +73,7 @@ class AHomeList extends Component {
       //will source out map to other component soon, but this creates every poster you see on the page using a 
       //get call joining together the movies and their genres with array_agg
       <div className='AHomeList'>
-          <h1>Top Movies In Our Theater Today!</h1>
+        <h1>Top Movies In Our Theater Today!</h1>
         <Grid container alignContent='center' justify="center" spacing={0}  >
           <Grid container item justify='center' xs={12} spacing={0} >
             <div className="searchBar">
@@ -86,7 +91,7 @@ class AHomeList extends Component {
             </div>
           </Grid>
           {movies.map((movie) => (
-            <MovieMapItem movie={movie} key={movie.id} showDetails={this.showDetails}/>
+            <MovieMapItem movie={movie} key={movie.id} showDetails={this.showDetails} />
           ))}
         </Grid>
       </div>

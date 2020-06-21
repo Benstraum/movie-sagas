@@ -9,7 +9,6 @@ const movies = (state = [], action) => {
 const details = (state = {}, action) => {
     switch (action.type) {
         case 'SET_DETAILS':
-            console.log(action.payload)
             return action.payload
         default:
             return state;
@@ -19,7 +18,6 @@ const details = (state = {}, action) => {
 const genres = (state = [], action) => {
     switch (action.type) {
         case 'SET_GENRES':
-            console.log(action.payload)
             return action.payload;
         default:
             return state;
@@ -28,7 +26,6 @@ const genres = (state = [], action) => {
 const query = (state = [], action) => {
     switch (action.type) {
         case 'SET_QUERY':
-            console.log(action.payload)
             return action.payload;
         default:
             return state;

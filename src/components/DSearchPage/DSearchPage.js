@@ -6,9 +6,6 @@ import HomeIcon from '@material-ui/icons/Home';
 import './DSearchPage.css'
 
 class DSearchPage extends Component {
-    componentDidMount() {
-        console.log('in search', this.props.query)
-    }
     //similar design to my initial homelist component next step is to create reusable map component for these
     showDetails = (movie) => {
         this.props.dispatch({ type: 'SET_DETAILS', payload: movie })
