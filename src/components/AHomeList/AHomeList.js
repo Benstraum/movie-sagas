@@ -4,7 +4,7 @@ import MovieMapItem from '../MovieMapItem/MovieMapItem'
 import './AHomeList.css'
 //mat-ui
 import Grid from '@material-ui/core/Grid';
-import { Paper, TextField } from '@material-ui/core'
+import {TextField } from '@material-ui/core'
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 //sweetalert
@@ -68,6 +68,8 @@ class AHomeList extends Component {
 
   }
   render() {
+    const shuffled = this.props.movies.sort(() => 0.5 - Math.random());
+    const movies = shuffled.slice(0, 5)
     return (
       //will source out map to other component soon, but this creates every poster you see on the page using a 
       //get call joining together the movies and their genres with array_agg
@@ -88,7 +90,7 @@ class AHomeList extends Component {
               </IconButton>
             </div>
           </Grid>
-          {this.props.movies.map((movie) => (
+          {movies.map((movie) => (
             <MovieMapItem movie={movie} key={movie.id} showDetails={this.showDetails}/>
           ))}
         </Grid>

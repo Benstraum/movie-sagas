@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import MovieMapItem from '../MovieMapItem/MovieMapItem'
 import { connect } from 'react-redux';
-import { Paper } from '@material-ui/core'
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
 import './DSearchPage.css'

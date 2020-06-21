@@ -17,10 +17,13 @@
     overflow-y: auto;
 }
 .innerMovie{
-    height: 350px;
+    height: 370px;
     padding:10px;
     word-wrap: break-word;
     width: 200px;
+}
+img{
+    outline: black 1px;
 }
 .searchBar{
     box-shadow: 5px 5px 5px 5px black;
