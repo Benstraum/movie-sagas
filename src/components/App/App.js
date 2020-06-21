@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Router>
+        <Router>  
           <Header/>
           <AnimatedSwitch
             atEnter={{ opacity: 0 }}

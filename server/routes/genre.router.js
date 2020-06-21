@@ -23,9 +23,10 @@ router.get("/:id", (req, res) => {
       res.sendStatus(500);
     });
 });
+//frame for adding removing genres 
 // update given movie with a category id
 // router.put("/:id", (req, res) => {
-//   queryText = `UPDATE movies SET "description" = $1, "title"=$2 WHERE "id" = $3`
+//   queryText = `UPDATE genre  WHERE "id" = $3`
 //   console.log('this is req.body', req.body);
 //   pool.query(queryText, [req.body.description, req.body.title, req.body.id])
 //     .then(result => {

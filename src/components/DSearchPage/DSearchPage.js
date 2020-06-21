@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Paper } from '@material-ui/core'
+import IconButton from '@material-ui/core/IconButton';
+import HomeIcon from '@material-ui/icons/Home';
 import './DSearchPage.css'
 
 class DSearchPage extends Component {
@@ -17,19 +19,28 @@ class DSearchPage extends Component {
     }
 
     render() {
-        return (<div className="showDetail">
+        return (<div className="centerSearch">
+            <div className='searchBar'>
                 <h1>Search Results!</h1>
-            {this.props.query.map((movie) => (
-                <div key={movie.id} className="movie">
+                <IconButton
+                    color="secondary"
+                    onClick={() => this.props.history.push('/')}>
+                        <HomeIcon/>
+                    </IconButton>
+            </div>
+            <div className="showDetail">
+                {this.props.query.map((movie) => (
+                    <div key={movie.id} className="movie">
                         <Paper key={movie.id} elevation={3}>
                             <div className="innerMovie" onClick={() => this.showDetails(movie)}>
                                 <img src={movie.poster} alt={movie.title} />
                                 <p><b>Genres</b>: <br />{movie.array_agg.join(', ')}</p>
                             </div>
                         </Paper>
-                </div>
-            ))}
-
+                    </div>
+                ))}
+                <br />
+            </div>
         </div>
         )
     }
