@@ -3,9 +3,11 @@
 Movie Sagas
 
 ## Screenshots
-![feelings page](./screenshots/CommentPage.png)
-![comment page](./screenshots/FeelingsPage.png)
-![ Review page edit](./screenshots/ReviewPage.png)
+![ Homescreen](src/wireframes/Homescreen.png)
+![Details page](src/wireframes/details.png)
+![edit page](src/wireframes/Edit.png)
+![search page](src/wireframes/Search.png)
+
 
 ## PRE REQUISITES 
 
