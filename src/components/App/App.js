@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route } from "react-router-dom";
 import { AnimatedSwitch } from 'react-router-transition';
+import { Container } from 'semantic-ui-react';
 import './App.css';
 import AHomeList from '../AHomeList/AHomeList';
 import BDetails from '../BDetails/BDetails'
@@ -13,7 +14,7 @@ class App extends Component {
   // Renders the entire app on the DOM
   render() {
     return (
-      <div className="App">
+      <Container fluid className="App">
         <Router>  
           <Header/>
           {/* <AnimatedSwitch
@@ -28,7 +29,7 @@ class App extends Component {
             <Route path="/search/:id" component={DSearchPage}/>
           {/* </AnimatedSwitch> */}
         </Router>
-      </div>
+      </Container>
     );
   }
 }
