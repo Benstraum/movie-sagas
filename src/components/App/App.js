@@ -14,9 +14,9 @@ class App extends Component {
   // Renders the entire app on the DOM
   render() {
     return (
-      <Container fluid className="App">
         <Router>  
           <Header/>
+          <Container fluid className="App">
           {/* <AnimatedSwitch
             atEnter={{ opacity: 0 }}
             atLeave={{ opacity: 0 }}
@@ -28,8 +28,8 @@ class App extends Component {
             <Route path="/edit" component={CEdit} />
             <Route path="/search/:id" component={DSearchPage}/>
           {/* </AnimatedSwitch> */}
+          </Container>
         </Router>
-      </Container>
     );
   }
 }
