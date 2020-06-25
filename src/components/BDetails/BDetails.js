@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './BDetails.css'
-//mat-ui
-import Grid from '@material-ui/core/Grid';
-import { Paper } from '@material-ui/core'
+
 import Button from '@material-ui/core/Button';
+import { Container } from 'semantic-ui-react';
 
 
 class BDetails extends Component {
@@ -28,8 +27,8 @@ class BDetails extends Component {
             //  Material ui causes minor clogging but all this does is display movie info from reduxstate neatly
             <div className="outerMovie">
                 <h1>Movie Details</h1>
-                <Grid container direction="row" justify="center" spacing={8}  >
-                    <Paper key={details.id} elevation={3} >
+                <Container  >
+                    <div key={details.id} className="searchBar" >
                         <div className="detailInner" >
                             <img src={details.poster} alt={details.title} />
                             <div className="textDiv">
@@ -52,8 +51,8 @@ class BDetails extends Component {
                                 color="secondary"
                                 onClick={(() => this.props.history.push('/edit'))}>edit</ Button>
                         </div>
-                    </Paper>
-                </Grid>
+                    </div>
+                </Container>
             </div>
         );
     }

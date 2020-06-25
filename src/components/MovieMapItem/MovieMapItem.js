@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
-import { Paper } from '@material-ui/core'
+import { Container } from 'semantic-ui-react'
 
 class MovieMapItem extends Component {
     render() {
         let movie = this.props.movie
         return (<>
-            <div key={movie.id} className="movie">
-                <Paper key={movie.id} elevation={3}>
+          <Container  key={movie.id}  fluid>
+            <div className="movie">
+                <div  className="searchBar">
                     <div className="innerMovie" onClick={() => this.props.showDetails(movie)}>
                         <img src={movie.poster} alt={movie.title} />
                         <p><b>Genres</b>: <br />{movie.array_agg.join(', ')}</p>
                     </div>
-                </Paper>
+                </div>
             </div>
+            </Container>
         </>
         )
     }
