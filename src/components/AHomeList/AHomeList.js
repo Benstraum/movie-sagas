@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import MovieMapItem from '../MovieMapItem/MovieMapItem'
 import './AHomeList.css'
 //mat-ui
-import Grid from '@material-ui/core/Grid';
 import { TextField } from '@material-ui/core'
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
+import { Container } from 'semantic-ui-react'
 //sweetalert
 import Swal from 'sweetalert2'
 
@@ -49,33 +49,35 @@ class AHomeList extends Component {
   findMovie = () => {
     let query = this.state.query
     const result = this.props.movies.filter(movie => movie.title.toUpperCase().includes(query.toUpperCase()));
-    result.length ?
-      this.showSearch(query, result)
-      :
+    if (result.length === 0) {
+      this.showSearch("Here's all Movies", this.props.movies)
       Swal.fire({
         title: `We don't have any movie titles that match what you're looking for, Sorry!`,
         width: 600,
         padding: '3em',
         background: `#fff`,
         backdrop: `
-      rgba(39, 38, 38,0.8)
-    `
+          rgba(39, 38, 38,0.8)
+        `
       })
-
+    } else {
+      this.showSearch(query, result)
+    }
     this.setState({
       query: ''
     })
 
   }
   render() {
-    const movies = this.props.movies.slice(5, 10)
+    const movies = this.props.movies.slice(0, 5)
     return (
       //will source out map to other component soon, but this creates every poster you see on the page using a 
       //get call joining together the movies and their genres with array_agg
-      <div className='AHomeList'>
-        <h1>Top Movies In Our Theater Today!</h1>
-        <Grid container alignContent='center' justify="center" spacing={0}  >
-          <Grid container item justify='center' xs={12} spacing={0} >
+      <Container fluid>
+        <div className='AHomeList'>
+
+          <h1>Top Movies In Our Theater Today!</h1>
+          <Container fluid>
             <div className="searchBar">
               <TextField
                 id="filled-textarea"
@@ -89,12 +91,14 @@ class AHomeList extends Component {
                 <SearchIcon />
               </IconButton>
             </div>
-          </Grid>
+
+          </Container>
+          <br />
           {movies.map((movie) => (
             <MovieMapItem movie={movie} key={movie.id} showDetails={this.showDetails} />
           ))}
-        </Grid>
-      </div>
+        </div>
+      </Container>
     );
   }
 }

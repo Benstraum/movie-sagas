@@ -1,27 +1,29 @@
 .showDetail .movie{
   display:inline-block;
 }
-.centerSearch .searchBar{
-    margin:0;
-    padding: 0;
-    border-radius: 10px;
-    background-color: rgb(38,38,38);
+.homeBar{
+  margin:0;
+  padding: 0;
+  border-radius: 10px;
+  background-color: rgb(38,38,38);
+  box-shadow: 5px 5px 5px 5px black;
+  border-radius: 10px;
+  display: inline-block;
+  width: auto;
 }
-.centerSearch .searchBar h2{
+.centerSearch .homeBar h2{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: white;
   margin: 0;
   padding-top: 10px;
   float: left;
 }
-.centerSearch .searchBar button{
+.centerSearch .homeBar button{
   vertical-align: middle;
   font-size: large;
 }
 
 .centerSearch{
-  min-width: 100%;
- position: fixed;
 margin-left: auto;
 margin-right: auto;
 }

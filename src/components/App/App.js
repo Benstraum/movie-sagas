@@ -16,17 +16,17 @@ class App extends Component {
       <div className="App">
         <Router>  
           <Header/>
-          <AnimatedSwitch
+          {/* <AnimatedSwitch
             atEnter={{ opacity: 0 }}
             atLeave={{ opacity: 0 }}
             atActive={{ opacity: 1 }}
             className="switch-wrapper"
-          >
+          > */}
             <Route exact path="/" component={AHomeList} />
             <Route exact path="/details/:id" component={BDetails} />
             <Route path="/edit" component={CEdit} />
             <Route path="/search/:id" component={DSearchPage}/>
-          </AnimatedSwitch>
+          {/* </AnimatedSwitch> */}
         </Router>
       </div>
     );

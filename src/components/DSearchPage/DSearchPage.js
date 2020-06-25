@@ -17,7 +17,7 @@ class DSearchPage extends Component {
     }
     render() {
         return (<div className="centerSearch">
-            <div className='searchBar'>
+            <div className='homeBar'>
                 <h2>This what you're looking for?</h2>
                 <IconButton
                     color="secondary"
